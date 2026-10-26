@@ -146,7 +146,7 @@ class RouteAddressTest {
 
 class TunOptionsTest {
     @Test
-    fun `an unset mtu falls back to the core default`() {
+    fun `an unset mtu falls back to the app default`() {
         assertEquals(1500, optionsWithRoutes(emptyList()).tunMtu)
         assertEquals(1400, optionsWithRoutes(emptyList()).copy(mtu = 1400).tunMtu)
     }
