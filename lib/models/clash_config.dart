@@ -42,7 +42,10 @@ const defaultGeoXUrl = {
 
 const defaultMixedPort = 7890;
 const defaultKeepAliveInterval = 30;
-const defaultTunMtu = 9000;
+/// A jumbo 9000 MTU does not survive most real-world paths (NAT, PPPoE,
+/// international links) and stalls large downloads while small requests
+/// still work; 1500 is the safe Ethernet default (see #1583, #2834).
+const defaultTunMtu = 1500;
 const minTunMtu = 1280;
 const maxTunMtu = 65535;
 const defaultCongestionController = 'cubic';
